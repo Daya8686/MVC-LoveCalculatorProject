@@ -18,7 +18,7 @@ public class DispacherServeltAutoConfig extends AbstractAnnotationConfigDispatch
 
 	@Override
 	protected String[] getServletMappings() {
-		String [] map= {"/daya/*"};
+		String [] map= {"/"};
 		return map;
 	}
 
