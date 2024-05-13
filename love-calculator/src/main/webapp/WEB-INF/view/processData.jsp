@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Result</h1>
-<p>Your Name: ${userName}</p>
-<p>Crush's Name: ${crushName}</p>
+<p>Your Name: ${userInfo.yourName}</p>
+<p>Crush's Name: ${userInfo.crushName}</p>
 </body>
 </html>

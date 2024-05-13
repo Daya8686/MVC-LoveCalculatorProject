@@ -1,26 +1,36 @@
 package com.lovecalculator.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import com.lovecalculator.DTO.SignUpInfoDTO;
+import com.lovecalculator.DTO.UserInfoDTO;
 
 @Controller
 public class LCAppController {
 	
 	@RequestMapping("/")
-	public String welcomePage() {
+	public String welcomePage(@ModelAttribute("userInfoDefault") UserInfoDTO userInfoDTO) {
+		
 		return "Home";
 	}
 	
 	@RequestMapping("processData")
-	public String processData(@RequestParam("yourName") String yourName, @RequestParam ("crushName") String crushName, Model model) {
-		System.out.println("-=-=-=-==-=-=-=-=-=-=-=-=-=--=-=-=-=-==-======-==-=--=-=--=-");
-		System.out.println();
-		 model.addAttribute("userName", yourName);
-		 model.addAttribute("crushName", crushName);
+	public String processData(@ModelAttribute ("userInfo") UserInfoDTO userInfo) {
 		 
 		return "processData";
+		
+	}
+	@RequestMapping("signup")
+	public String loginPage(@ModelAttribute("loginInfo") SignUpInfoDTO loginInfoDTO) {
+		return "SignUp";
+	}
+	
+	@RequestMapping("signupCheck")
+	public String loginCheckPage(@ModelAttribute("loginInfo") SignUpInfoDTO loginInfoDTO) {
+		System.out.println(loginInfoDTO);
+		return "signupCheck";
 		
 	}
 

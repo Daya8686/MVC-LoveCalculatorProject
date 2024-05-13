@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -67,13 +68,15 @@ input[type="submit"]:hover {
 		<h1>Love Calculator</h1>
 		<hr />
 		<div class="container">
-			<form id="loveForm" action="processData" method="post">
-				<label for="yourName:">Your Name:</label><br> <input
-					type="text" id="yourName" name="yourName" required><br>
-				<label for="crushName:">Crush Name:</label><br> <input
-					type="text" id="crushName" name="crushName" required><br>
-				<br> <input type="submit"></input>
-			</form>
+			<form:form id="loveForm" action="processData" method="post" modelAttribute="userInfoDefault">
+				<label for="yourName:">Your Name:</label><br>
+				 <form:input type="text" id="yourName" path="yourName"/>
+				 <br>
+				<label for="crushName:">Crush Name:</label><br>
+				 <form:input type="text" id="crushName" path="crushName" />
+				 <br>
+				<br> <input type="submit">
+			</form:form>
 		</div>
 	</div>
 
