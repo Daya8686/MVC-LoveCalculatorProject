@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.lovecalculator.DTO.SignUpInfoDTO;
 import com.lovecalculator.DTO.UserInfoDTO;
 
 @Controller
@@ -22,16 +21,6 @@ public class LCAppController {
 		return "processData";
 		
 	}
-	@RequestMapping("signup")
-	public String loginPage(@ModelAttribute("loginInfo") SignUpInfoDTO loginInfoDTO) {
-		return "SignUp";
-	}
 	
-	@RequestMapping("signupCheck")
-	public String loginCheckPage(@ModelAttribute("loginInfo") SignUpInfoDTO loginInfoDTO) {
-		System.out.println(loginInfoDTO);
-		return "signupCheck";
-		
-	}
 
 }

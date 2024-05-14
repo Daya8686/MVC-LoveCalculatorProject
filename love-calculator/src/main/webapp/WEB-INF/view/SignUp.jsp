@@ -63,7 +63,7 @@ input[type="submit"]:hover {
 <h1>Love Calculator</h1>
 	<div id="container">
 		
-		<form:form id="loginForm" action="signupCheck" method="post" modelAttribute="loginInfo">
+		<form:form id="signUpForm" action="signupCheck" method="post" modelAttribute="signUpInfo">
 			<label for=name>Name:</label><br>
 			<form:input type="text" id="name" path="name" />
 			<br>

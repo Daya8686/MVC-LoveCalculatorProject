@@ -13,12 +13,14 @@ public class DispacherServeltAutoConfig extends AbstractAnnotationConfigDispatch
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 	 Class [] config= {LoveCalculatorConfig.class};
+	 
 		return config;
 	}
 
 	@Override
 	protected String[] getServletMappings() {
 		String [] map= {"/"};
+	
 		return map;
 	}
 

@@ -8,7 +8,7 @@ public class SignUpInfoDTO {
 	private String password;
 	private String cPassword;
 	private String country="India";
-	private String hobby;
+	private String[] hobby;
 	private String gender="Male";
 	public String getName() {
 		return name;
@@ -40,10 +40,10 @@ public class SignUpInfoDTO {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public String getHobby() {
+	public String[] getHobby() {
 		return hobby;
 	}
-	public void setHobby(String hobby) {
+	public void setHobby(String[] hobby) {
 		this.hobby = hobby;
 	}
 	public String getGender() {
@@ -54,7 +54,7 @@ public class SignUpInfoDTO {
 	}
 	@Override
 	public String toString() {
-		return "LoginInfoDTO [name=" + name + ", userName=" + userName + ", password=" + password + ", cPassword="
+		return "SignupInfoDTO [name=" + name + ", userName=" + userName + ", password=" + password + ", cPassword="
 				+ cPassword + ", country=" + country + ", hobby=" + hobby + ", gender=" + gender + "]";
 	}
 	
