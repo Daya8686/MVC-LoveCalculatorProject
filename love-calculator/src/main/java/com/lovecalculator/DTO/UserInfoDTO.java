@@ -6,15 +6,15 @@ import jakarta.validation.constraints.Size;
 
 public class UserInfoDTO {
 	
-	@NotBlank(message = "Your Name can not be left blank")
-	@Size(min = 3, max = 25, message = "Your Name feld must contains min 3 and max 25 charaters")
+	@NotBlank(message = "* Your Name can not be left blank")
+	@Size(min = 3, max = 25, message = "* Your Name feld must contains min 3 and max 25 charaters")
 	private String yourName;
 	
-	@NotBlank(message = "Crush Name can not be left blank")
-	@Size(min = 3, max = 25, message = "Your Name feld must contains min 3 and max 25 charaters")
+	@NotBlank(message = "* Crush Name can not be left blank")
+	@Size(min = 3, max = 25, message = "* Your Name feld must contains min 3 and max 25 charaters")
 	private String crushName;
 	
-	@AssertTrue(message = "Must accept the terms and condition to proceed")
+	@AssertTrue(message = "* Must accept the terms and condition to proceed")
 	private boolean termsAndCondition;
 	
 	public boolean isTermsAndCondition() {
