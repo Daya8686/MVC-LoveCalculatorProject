@@ -100,7 +100,7 @@ input[type="submit"]:hover {
 		<h1>Love Calculator</h1>
 		<hr />
 		<div class="container">
-			<form:form id="loveForm" action="processData" method="post" modelAttribute="userInfoDefault" onsubmit=" return validateInput()">
+			<form:form id="loveForm" action="processData" method="post" modelAttribute="userInfo" >
 				<label for="yourName:">Your Name:</label><br>
 				 <form:input id="yourName" path="yourName"/>
 				 <br>

@@ -10,5 +10,6 @@
 <h1>Result</h1>
 <p>Your Name: ${userInfo.yourName}</p>
 <p>Crush's Name: ${userInfo.crushName}</p>
+<p>Terms: ${userInfo.termsAndCondition}</p>
 </body>
 </html>

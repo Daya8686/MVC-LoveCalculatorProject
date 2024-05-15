@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @ComponentScan (basePackages = "com")
 @EnableWebMvc
-public class LoveCalculatorConfig {
+public class LoveCalculatorConfig  {
 	
 	@Bean
 	public InternalResourceViewResolver viewResolver() {

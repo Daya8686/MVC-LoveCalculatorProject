@@ -6,6 +6,37 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Love Calculation Application</title>
+<script type="text/javascript">
+function validateInput(){
+	var yourName=document.getElementById("yourName").value;
+	var crushName=document.getElementById("crushName").value;
+	if(yourName.length ==0 || crushName.length==0){
+		alert("Your Name Or Crush Name can not be left empty!");
+		return false;
+	}
+	else if (yourName.length <3 || crushName.length<3){
+		alert("Your Name Or Crush Name must contain atleast 3 Characters");
+		return false;
+	}
+	else {
+		var res;
+		var termsAndCondition=document.getElementById("termsAndCondition").checked;
+		console.log(termsAndCondition);
+		if(!termsAndCondition){
+			alert("You need to accept the terms and conditions to proceed");
+		 res= false;
+		}
+		else {
+		res=true;
+		}
+		return res;
+	}
+	
+}
+
+
+
+</script>
 <style>
 #outerContainer {
 	display: flex;
@@ -39,6 +70,7 @@ form {
 label {
 	font-family: Arial, sans-serif;
 	font-size: 20px;
+	color: white;
 }
 
 input[type="text"] {
@@ -68,14 +100,16 @@ input[type="submit"]:hover {
 		<h1>Love Calculator</h1>
 		<hr />
 		<div class="container">
-			<form:form id="loveForm" action="processData" method="post" modelAttribute="userInfoDefault">
+			<form:form id="loveForm" action="processData" method="post" modelAttribute="userInfoDefault" >
 				<label for="yourName:">Your Name:</label><br>
-				 <form:input type="text" id="yourName" path="yourName"/>
+				 <form:input id="yourName" path="yourName"/>
 				 <br>
 				<label for="crushName:">Crush Name:</label><br>
-				 <form:input type="text" id="crushName" path="crushName" />
+				 <form:input  id="crushName" path="crushName" />
 				 <br>
-				<br> <input type="submit">
+				 <form:checkbox  path="termsAndCondition" id="termsAndCondition"/>
+				 <label for="termsAndCondition" >Agreeing Terms and Conditions<i>(This is only for fun)</i></label>
+				<br> <input type="submit" value="calculate">
 			</form:form>
 		</div>
 	</div>
