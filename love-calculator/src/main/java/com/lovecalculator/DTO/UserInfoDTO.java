@@ -4,7 +4,14 @@ public class UserInfoDTO {
 	
 	private String yourName="Jack";
 	private String crushName="Amy";
+	private boolean termsAndCondition;
 	
+	public boolean isTermsAndCondition() {
+		return termsAndCondition;
+	}
+	public void setTermsAndCondition(boolean termsAndCondition) {
+		this.termsAndCondition = termsAndCondition;
+	}
 	public String getYourName() {
 		return yourName;
 	}
@@ -19,8 +26,10 @@ public class UserInfoDTO {
 	}
 	@Override
 	public String toString() {
-		return "UserInfoDTO [yourName=" + yourName + ", crushName=" + crushName + "]";
+		return "UserInfoDTO [yourName=" + yourName + ", crushName=" + crushName + ", termsAndCondition="
+				+ termsAndCondition + "]";
 	}
+	
 	
 	
 	
