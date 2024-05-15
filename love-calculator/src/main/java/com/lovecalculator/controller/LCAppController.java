@@ -11,13 +11,13 @@ public class LCAppController {
 	
 	@RequestMapping("/")
 	public String welcomePage(@ModelAttribute("userInfoDefault") UserInfoDTO userInfoDTO) {
-		
+		System.out.println(userInfoDTO);
 		return "Home";
 	}
 	
 	@RequestMapping("processData")
 	public String processData(@ModelAttribute ("userInfo") UserInfoDTO userInfo) {
-		 
+		 System.out.println(userInfo);
 		return "processData";
 		
 	}

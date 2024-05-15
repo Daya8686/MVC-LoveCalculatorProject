@@ -15,14 +15,26 @@ function validateInput(){
 		return false;
 	}
 	else if (yourName.length <3 || crushName.length<3){
-		alert("Your Name Or Crush Name must contain more then 3 Characters");
+		alert("Your Name Or Crush Name must contain atleast 3 Characters");
 		return false;
 	}
-	else{
-		return true;
+	else {
+		var res;
+		var termsAndCondition=document.getElementById("termsAndCondition").checked;
+		console.log(termsAndCondition);
+		if(!termsAndCondition){
+			alert("You need to accept the terms and conditions to proceed");
+		 res= false;
+		}
+		else {
+		res=true;
+		}
+		return res;
 	}
 	
 }
+
+
 
 </script>
 <style>
@@ -88,14 +100,14 @@ input[type="submit"]:hover {
 		<h1>Love Calculator</h1>
 		<hr />
 		<div class="container">
-			<form:form id="loveForm" action="processData" method="post" modelAttribute="userInfoDefault" onsubmit="validateInput()">
+			<form:form id="loveForm" action="processData" method="post" modelAttribute="userInfoDefault" onsubmit=" return validateInput()">
 				<label for="yourName:">Your Name:</label><br>
 				 <form:input id="yourName" path="yourName"/>
 				 <br>
 				<label for="crushName:">Crush Name:</label><br>
 				 <form:input  id="crushName" path="crushName" />
 				 <br>
-				 <form:checkbox path="termsAndCondition"/>
+				 <form:checkbox  path="termsAndCondition" id="termsAndCondition"/>
 				 <label for="termsAndCondition" >Agreeing Terms and Conditions<i>(This is only for fun)</i></label>
 				<br> <input type="submit" value="calculate">
 			</form:form>
