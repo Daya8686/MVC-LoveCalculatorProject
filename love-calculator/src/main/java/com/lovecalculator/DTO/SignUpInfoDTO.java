@@ -1,5 +1,7 @@
 package com.lovecalculator.DTO;
 
+import java.util.Arrays;
+
 import jakarta.validation.Valid;
 
 public class SignUpInfoDTO {
@@ -66,9 +68,11 @@ public class SignUpInfoDTO {
 	}
 	@Override
 	public String toString() {
-		return "SignupInfoDTO [name=" + name + ", userName=" + userName + ", password=" + password + ", cPassword="
-				+ cPassword + ", country=" + country + ", hobby=" + hobby + ", gender=" + gender + "]";
+		return "SignUpInfoDTO [name=" + name + ", userName=" + userName + ", password=" + password + ", cPassword="
+				+ cPassword + ", country=" + country + ", hobby=" + Arrays.toString(hobby) + ", gender=" + gender
+				+ ", communicationDetails=" + communicationDetails + "]";
 	}
+	
 	
 
 }

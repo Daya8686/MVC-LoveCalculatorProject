@@ -25,6 +25,6 @@
 	</p>
 	<p>Gender ${signUpInfo.gender}</p>
 	<p>Email: ${signUpInfo.communicationDetails.email}</p>
-	<p>Email: ${signUpInfo.communicationDetails.phone}</p>
+	<p>Mobile: ${signUpInfo.communicationDetails.phone}</p>
 </body>
 </html>
