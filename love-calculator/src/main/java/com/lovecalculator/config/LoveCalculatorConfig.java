@@ -3,13 +3,17 @@ package com.lovecalculator.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+import com.lovecalculator.formatter.phoneNumberFormatter;
 
 @Configuration
 @ComponentScan (basePackages = "com")
 @EnableWebMvc
-public class LoveCalculatorConfig  {
+public class LoveCalculatorConfig implements WebMvcConfigurer {
 	
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
@@ -17,6 +21,12 @@ public class LoveCalculatorConfig  {
 		internalResourceViewResolver.setPrefix("/WEB-INF/view/");
 		internalResourceViewResolver.setSuffix(".jsp");
 		return internalResourceViewResolver;
+	}
+	
+	
+	@Override
+	public void addFormatters(FormatterRegistry registry) {
+		registry.addFormatter(new phoneNumberFormatter());
 	}
 
 }

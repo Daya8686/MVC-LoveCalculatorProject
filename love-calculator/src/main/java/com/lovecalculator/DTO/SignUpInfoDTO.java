@@ -1,5 +1,7 @@
 package com.lovecalculator.DTO;
 
+import jakarta.validation.Valid;
+
 public class SignUpInfoDTO {
 	
 	private String name;
@@ -10,6 +12,16 @@ public class SignUpInfoDTO {
 	private String country="India";
 	private String[] hobby;
 	private String gender="Male";
+	
+	@Valid
+	private CommunicationDetails communicationDetails;
+	
+	public CommunicationDetails getCommunicationDetails() {
+		return communicationDetails;
+	}
+	public void setCommunicationDetails(CommunicationDetails communicationDetails) {
+		this.communicationDetails = communicationDetails;
+	}
 	public String getName() {
 		return name;
 	}

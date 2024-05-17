@@ -8,14 +8,16 @@
 <title>Love Calculator</title>
 <style>
 #container {
-    display: flex;
-    justify-content: center; /* Centers content horizontally */
-    margin-left:30%;
-    height: 100vh; /* Optional: Set height to full viewport height */
+	display: flex;
+	justify-content: center; /* Centers content horizontally */
+	margin-left: 30%;
+	height: 100vh; /* Optional: Set height to full viewport height */
 }
-h1{
-text-align: center;
+
+h1 {
+	text-align: center;
 }
+
 form {
 	width: 100%;
 }
@@ -31,6 +33,7 @@ input[type="text"] {
 	margin-bottom: 10px;
 	box-sizing: border-box;
 }
+
 .password {
 	padding: 8px;
 	width: 70%;
@@ -47,34 +50,45 @@ input[type="submit"] {
 	border-radius: 5px;
 	transition: background-color 0.3s;
 }
-.optionsAndcheckbox{
-padding: 10px;
-font-size: 20px;
-margin: 10px;
+
+.optionsAndcheckbox {
+	padding: 10px;
+	font-size: 20px;
+	margin: 10px;
 }
 
 input[type="submit"]:hover {
 	background-color: #45a049;
 }
+
+.error {
+	color: red;
+	text-align: left;
+}
 </style>
 </head>
 
 <body>
-<h1>Love Calculator</h1>
+	<h1>Love Calculator</h1>
 	<div id="container">
-		
-		<form:form id="signUpForm" action="signupCheck" method="post" modelAttribute="signUpInfo">
-			<label for=name>Name:</label><br>
+
+		<form:form id="signUpForm" action="signupCheck" method="post"
+			modelAttribute="signUpInfo">
+			<label for=name>Name:</label>
+			<br>
 			<form:input type="text" id="name" path="name" />
 			<br>
-			<label for=userName>User Name:</label><br>
+			<label for=userName>User Name:</label>
+			<br>
 			<form:input type="text" id="userName" path="userName" />
 			<br>
-			<label for=password>Password:</label><br>
-			<form:password  class="password" path="password" />
+			<label for=password>Password:</label>
 			<br>
-			<label for=cPassword>Confirm Password:</label><br>
-			<form:password  class="password" path="cPassword" />
+			<form:password class="password" path="password" />
+			<br>
+			<label for=cPassword>Confirm Password:</label>
+			<br>
+			<form:password class="password" path="cPassword" />
 			<br>
 			<label for="country">Country:</label>
 			<form:select path="country" class="optionsAndcheckbox">
@@ -84,15 +98,41 @@ input[type="submit"]:hover {
 			</form:select>
 			<br>
 			<label for="hobby">Hobby:</label>
-			<form:checkbox path="hobby" value="Reading" class="optionsAndcheckbox"/> Reading 
-			<form:checkbox path="hobby" value="Programming" class="optionsAndcheckbox"/> Programming 
-			<form:checkbox path="hobby" value="Cooking" class="optionsAndcheckbox" /> Cooking 
+			<form:checkbox path="hobby" value="Reading"
+				class="optionsAndcheckbox" /> Reading 
+			<form:checkbox path="hobby" value="Programming"
+				class="optionsAndcheckbox" /> Programming 
+			<form:checkbox path="hobby" value="Cooking"
+				class="optionsAndcheckbox" /> Cooking 
 			<form:checkbox path="hobby" value="Sports" class="optionsAndcheckbox" /> Sports <br>
 			<label for="gender">Gender:</label>
-			<form:radiobutton path="gender" value="Male" label="Male" class="optionsAndcheckbox" />
-			<form:radiobutton path="gender" value="Female" label="Female" class="optionsAndcheckbox" />
+			<form:radiobutton path="gender" value="Male" label="Male"
+				class="optionsAndcheckbox" />
+			<form:radiobutton path="gender" value="Female" label="Female"
+				class="optionsAndcheckbox" />
+			<br>
+			<br>
+			<h3>Communication details</h3>
+			<br>
+			<lable>Email:</lable>
+			<br>
+			<form:input path="communicationDetails.email" />
+			<br>
+			<form:errors path="communicationDetails.email" class="error" />
+			<br>
+			<lable>Mobile no:</lable>
+			<br>
+			<form:input path="communicationDetails.phone" />
+			<br>
+			<form:errors path="communicationDetails.phone.mobileNumber"
+				class="error" />
+			<br>
+			<form:errors path="communicationDetails.phone.countryCode"
+				class="error" />
 
-			<br> <input type="submit" value="Register">
+
+			<br>
+			<input type="submit" value="Register">
 
 		</form:form>
 	</div>
