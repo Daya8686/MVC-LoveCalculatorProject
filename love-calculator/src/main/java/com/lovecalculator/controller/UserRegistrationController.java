@@ -21,7 +21,7 @@ public class UserRegistrationController {
 		phone.setCountryCode("91"); // ---> lets think this is coming from db but now hard coded 
 		phone.setMobileNumber("9898989898");
 		CommunicationDetails communicationDetails = new CommunicationDetails();
-		communicationDetails.setPhone(phone);
+		communicationDetails.setPhone(phone); //print method from formatter is and perform formatting by spring
 		signUpInfoDTO.setCommunicationDetails(communicationDetails);
 		return "SignUp";
 	}
