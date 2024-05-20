@@ -110,17 +110,21 @@ input[type="submit"]:hover {
 				class="optionsAndcheckbox" />
 			<form:radiobutton path="gender" value="Female" label="Female"
 				class="optionsAndcheckbox" />
+				<br>
+				<label>Age: </label>
+				<form:input path="age"/><br>
+				<form:errors path="age" class="error"/>
 			<br>
 			<br>
 			<h3>Communication details</h3>
 			<br>
-			<lable>Email:</lable>
+			<label>Email:</label>
 			<br>
 			<form:input path="communicationDetails.email" />
 			<br>
 			<form:errors path="communicationDetails.email" class="error" />
 			<br>
-			<lable>Mobile no:</lable>
+			<label>Mobile no:</label>
 			<br>
 			<form:input path="communicationDetails.phone" />
 			<br>

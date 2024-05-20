@@ -2,6 +2,8 @@ package com.lovecalculator.DTO;
 
 import java.util.Arrays;
 
+import com.lovecalculator.validation.Age;
+
 import jakarta.validation.Valid;
 
 public class SignUpInfoDTO {
@@ -15,7 +17,10 @@ public class SignUpInfoDTO {
 	private String[] hobby;
 	private String gender="Male";
 	
-	@Valid
+	@Age(lower = 30, upper = 90, message = "The age must be in between {lower} to {upper}")
+	private Integer age;
+	
+//	@Valid
 	private CommunicationDetails communicationDetails;
 	
 	public CommunicationDetails getCommunicationDetails() {
@@ -66,12 +71,19 @@ public class SignUpInfoDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
+	}
 	@Override
 	public String toString() {
 		return "SignUpInfoDTO [name=" + name + ", userName=" + userName + ", password=" + password + ", cPassword="
 				+ cPassword + ", country=" + country + ", hobby=" + Arrays.toString(hobby) + ", gender=" + gender
-				+ ", communicationDetails=" + communicationDetails + "]";
+				+ ", age=" + age + ", communicationDetails=" + communicationDetails + "]";
 	}
+	
 	
 	
 
