@@ -8,6 +8,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.lovecalculator.formatter.AmountFormatter;
+import com.lovecalculator.formatter.CreditCardFormatter;
 import com.lovecalculator.formatter.phoneNumberFormatter;
 
 @Configuration
@@ -27,6 +29,10 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
 		registry.addFormatter(new phoneNumberFormatter());
+		registry.addFormatter(new CreditCardFormatter());
+		registry.addFormatter(new AmountFormatter());
 	}
+	
+	
 
 }
