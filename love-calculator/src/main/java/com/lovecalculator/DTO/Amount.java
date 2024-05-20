@@ -19,7 +19,7 @@ public class Amount {
 	@Override
 	public String toString() {
 		System.out.println(billAmount+" "+ localDefination);
-		return billAmount+" "+ localDefination;
+		return " localDefination"+" billAmount+";
 	}
 	
 
