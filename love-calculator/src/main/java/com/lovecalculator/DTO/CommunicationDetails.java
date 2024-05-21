@@ -8,7 +8,7 @@ public class CommunicationDetails {
 	@NotBlank(message = "Email feild can't be left blank")
 	private String email;
 	
-//	@Valid
+	@Valid
 	private Phone phone;
 
 	public String getEmail() {

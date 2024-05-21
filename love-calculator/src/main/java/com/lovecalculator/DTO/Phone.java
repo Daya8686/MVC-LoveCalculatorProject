@@ -1,7 +1,6 @@
 package com.lovecalculator.DTO;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import com.lovecalculator.validation.*;
 
 public class Phone {
 	
@@ -11,6 +10,8 @@ public class Phone {
 	
 //	@NotBlank(message = "Phone number should not be left blank")
 //	@Size(min = 10, max = 10, message = "Phone number must be entered with country code as follows: Eg: 91-0000000000")
+// Custom Validation Annotation Phone
+	@PhoneCheck
 	private String mobileNumber;
 
 	public String getCountryCode() {

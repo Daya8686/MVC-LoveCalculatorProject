@@ -23,6 +23,7 @@
 </c:forEach>
 
 	</p>
+	<p>Age: ${signUpInfo.age}</p>
 	<p>Gender ${signUpInfo.gender}</p>
 	<p>Email: ${signUpInfo.communicationDetails.email}</p>
 	<p>Mobile: ${signUpInfo.communicationDetails.phone}</p>

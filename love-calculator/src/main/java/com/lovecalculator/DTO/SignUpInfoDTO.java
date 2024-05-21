@@ -20,7 +20,7 @@ public class SignUpInfoDTO {
 	@Age(lower = 30, upper = 90, message = "The age must be in between {lower} to {upper}")
 	private Integer age;
 	
-//	@Valid
+	@Valid
 	private CommunicationDetails communicationDetails;
 	
 	public CommunicationDetails getCommunicationDetails() {

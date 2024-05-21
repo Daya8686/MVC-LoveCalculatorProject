@@ -12,14 +12,16 @@ import jakarta.validation.Payload;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-@Constraint(validatedBy = AgeValidationConstraint.class)
-public @interface Age {
+@Constraint(validatedBy = PhoneValidationConstraint.class)
+public @interface PhoneCheck {
 	
-	String message() default "{ValidDefaultErrorMessage}";
-	int lower() default 18;
-	int upper() default 99;
+	String message() default "{VaildPhoneNumberErrorMessage}";
+	int length() default 10;
 	Class<?>[] groups() default { };
 
 	Class<? extends Payload>[] payload() default { };
+	
+	
+	
 
 }
