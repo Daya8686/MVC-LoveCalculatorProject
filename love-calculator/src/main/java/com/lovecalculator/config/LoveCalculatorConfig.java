@@ -54,8 +54,10 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 	public void addFormatters(FormatterRegistry registry) {
 		registry.addFormatter(new phoneNumberFormatter());
 		registry.addFormatter(new CreditCardFormatter());
-		registry.addFormatter(new AmountFormatter());
+//		registry.addFormatter(new AmountFormatter()); // here we are using Custom Editor
 	}
+	
+	
 	
 	
 

@@ -76,7 +76,8 @@ input[type="submit"]:hover {
 			modelAttribute="signUpInfo">
 			<label for=name>Name:</label>
 			<br>
-			<form:input type="text" id="name" path="name" />
+			<form:input type="text" id="name" path="name" /><br>
+			<form:errors path="name" class="error"/>
 			<br>
 			<label for=userName>User Name:</label>
 			<br>

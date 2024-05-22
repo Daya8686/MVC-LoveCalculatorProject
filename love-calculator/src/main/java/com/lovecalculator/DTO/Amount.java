@@ -2,12 +2,13 @@ package com.lovecalculator.DTO;
 
 public class Amount {
 	
-	private int billAmount;
+	
+	private Integer billAmount;
 	private String localDefination;
-	public int getBillAmount() {
+	public Integer getBillAmount() {
 		return billAmount;
 	}
-	public void setBillAmount(int billAmount) {
+	public void setBillAmount(Integer billAmount) {
 		this.billAmount = billAmount;
 	}
 	public String getLocalDefination() {
@@ -19,7 +20,7 @@ public class Amount {
 	@Override
 	public String toString() {
 		System.out.println(billAmount+" "+ localDefination);
-		return " localDefination"+" billAmount+";
+		return  localDefination +" "+ billAmount ;
 	}
 	
 

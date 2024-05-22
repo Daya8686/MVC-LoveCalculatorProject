@@ -21,7 +21,7 @@ font-size: 20px;
 <body>
 	<h1>Bill Info</h1>
 	<p>BILL AGAINST THE CREDIT CARD NUMBER ${billInfo.creditCard} for
-		an amount of ${billInfo.amount} has been generated</p>
+		an amount of ${billInfo.amount} has been generated ${billInfo.date}</p>
 
 </body>
 </html>

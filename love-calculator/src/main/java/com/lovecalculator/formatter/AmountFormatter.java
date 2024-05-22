@@ -39,7 +39,7 @@ public class AmountFormatter implements Formatter<Amount> {
 	            String symbol = currencyChanger.getSymbol(currencyLocale);
 	            convertedAmount.setBillAmount(Integer.parseInt(amountStr));
 	            convertedAmount.setLocalDefination(symbol);
-	            System.out.println(symbol);
+	            System.out.println();
 	        } catch (NumberFormatException e) {
 	            throw new ParseException("Invalid number format.", 0);
 	        } catch (IllegalArgumentException e) {

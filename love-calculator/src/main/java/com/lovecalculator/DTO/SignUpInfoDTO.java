@@ -5,9 +5,11 @@ import java.util.Arrays;
 import com.lovecalculator.validation.Age;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotEmpty;
 
 public class SignUpInfoDTO {
 	
+	@NotEmpty
 	private String name;
 	
 	private String userName;
