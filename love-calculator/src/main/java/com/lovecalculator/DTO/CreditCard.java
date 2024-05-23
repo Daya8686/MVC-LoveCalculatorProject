@@ -2,13 +2,13 @@ package com.lovecalculator.DTO;
 
 public class CreditCard {
 	
-//	@Size(min = 4, max = 4, message = "First 4 digit must be present")
+
 	private Integer firstFourDigits;
-//	@Size(min = 4, max = 4, message = "Second 4 digit must be present")
+
 	private Integer secondFourDigits;
-//	@Size(min = 4, max = 4, message = "Third 4 digit must be present")
+
 	private Integer thirdFourDigits;
-//	@Size(min = 4, max = 4, message = "Fourth 4 digit must be present")
+
 	private Integer fourthFourDigits;
 	public Integer getFirstFourDigits() {
 		return firstFourDigits;

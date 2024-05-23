@@ -12,6 +12,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.lovecalculator.converter.CreditCardConverter;
+import com.lovecalculator.converter.CreditCardCoverterFromObjToString;
+import com.lovecalculator.converter.CurrencyConverter;
 import com.lovecalculator.formatter.AmountFormatter;
 import com.lovecalculator.formatter.CreditCardFormatter;
 import com.lovecalculator.formatter.phoneNumberFormatter;
@@ -53,8 +56,11 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
 		registry.addFormatter(new phoneNumberFormatter());
-		registry.addFormatter(new CreditCardFormatter());
+//		registry.addFormatter(new CreditCardFormatter()); //Commenting this for using converter instead Converter
 //		registry.addFormatter(new AmountFormatter()); // here we are using Custom Editor
+		registry.addConverter(new CreditCardConverter()); //this is for String to CreditCard Object
+		registry.addConverter(new CreditCardCoverterFromObjToString()); //this is for CreditCard Object to String to display
+//		registry.addConverter(new CurrencyConverter()); // This is amount converter from eur ->EUR toUppercase
 	}
 	
 	

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.lovecalculator.DTO.Amount;
 import com.lovecalculator.DTO.Bill;
+import com.lovecalculator.DTO.CreditCard;
 import com.lovecalculator.customeditors.AmountEditor;
 
 import jakarta.validation.Valid;
@@ -22,17 +23,28 @@ public class billController {
 	
 	@RequestMapping("bill")
 	public String billPage(@ModelAttribute ("billInfo") Bill bill) {
+		CreditCard card= new CreditCard();
+		card.setFirstFourDigits(1111);
+		card.setSecondFourDigits(2222);
+		card.setThirdFourDigits(3333);
+		card.setFourthFourDigits(4444);
+		bill.setCreditCard(card);
 		return "bill";
 	}
 	
 	@RequestMapping("billDetails")
 	public String billDetails(@Valid @ModelAttribute ("billInfo") Bill bill, BindingResult bindingResult) {
+		
 		System.out.println("Bill:"+bill);
 		if(bindingResult.hasErrors()) {
 			return "bill";
 		}
 		return "billDetails";
 	}
+	
+	
+	
+	
 	
 	@InitBinder
 	public void initBinding(WebDataBinder binder) {
