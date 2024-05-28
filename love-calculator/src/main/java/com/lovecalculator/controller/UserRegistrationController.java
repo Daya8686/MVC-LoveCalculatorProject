@@ -15,6 +15,7 @@ import com.lovecalculator.DTO.CommunicationDetails;
 import com.lovecalculator.DTO.Phone;
 import com.lovecalculator.DTO.SignUpInfoDTO;
 import com.lovecalculator.customeditors.UsernameEditor;
+import com.lovecalculator.springvalidation.RegisterPropsPageValidation;
 
 import jakarta.validation.Valid;
 
@@ -41,7 +42,7 @@ public class UserRegistrationController {
 		if (bindingResult.hasErrors()) {
 			List <FieldError> errors = bindingResult.getFieldErrors();
             for (FieldError error : errors) {
-                System.out.println("Error in field: " + error.getField() + " - " + error.getDefaultMessage());
+                System.out.println("Error in field: " + error.getField() + " - " + error.getDefaultMessage()+"-->"+error);
             }
 			
 			return "SignUp";
@@ -68,7 +69,14 @@ public class UserRegistrationController {
 		// we user send blank spaces like this "    " then it will not give error message 
 		//so here we can use this Databinder to bind the data in required eay and then send to DTO of controller
 		UsernameEditor editor = new UsernameEditor();
-		binder.registerCustomEditor(String.class,"userName", editor);
+		//here we are using editor
+		binder.registerCustomEditor(String.class,"userName", editor); //This is to make username in Upper Case
+		
+		
+		//Here we are using validation with Spring framework provided validation
+		binder.addValidators(new RegisterPropsPageValidation());
+		
+		
 		
 		
 	}

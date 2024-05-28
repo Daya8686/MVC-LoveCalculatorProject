@@ -76,12 +76,15 @@ input[type="submit"]:hover {
 			modelAttribute="signUpInfo">
 			<label for=name>Name:</label>
 			<br>
-			<form:input type="text" id="name" path="name" /><br>
-			<form:errors path="name" class="error"/>
+			<form:input type="text" id="name" path="name" />
+			<br>
+			<form:errors path="name" class="error" />
 			<br>
 			<label for=userName>User Name:</label>
 			<br>
 			<form:input type="text" id="userName" path="userName" />
+			<br>
+			<form:errors path="userName" class="error" />
 			<br>
 			<label for=password>Password:</label>
 			<br>
@@ -111,10 +114,11 @@ input[type="submit"]:hover {
 				class="optionsAndcheckbox" />
 			<form:radiobutton path="gender" value="Female" label="Female"
 				class="optionsAndcheckbox" />
-				<br>
-				<label>Age: </label>
-				<form:input path="age"/><br>
-				<form:errors path="age" class="error"/>
+			<br>
+			<label>Age: </label>
+			<form:input path="age" />
+			<br>
+			<form:errors path="age" class="error" />
 			<br>
 			<br>
 			<h3>Communication details</h3>
@@ -124,6 +128,7 @@ input[type="submit"]:hover {
 			<form:input path="communicationDetails.email" />
 			<br>
 			<form:errors path="communicationDetails.email" class="error" />
+			
 			<br>
 			<label>Mobile no:</label>
 			<br>

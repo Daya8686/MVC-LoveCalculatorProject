@@ -49,6 +49,11 @@ div>form {
 	align-items: center;
 	margin: auto;
 }
+
+.error {
+	color: red;
+	text-align: left;
+}
 </style>
 <body>
 	<h1>Bill</h1>
