@@ -1,7 +1,9 @@
 package com.lovecalculator.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,7 +15,9 @@ import jakarta.validation.Valid;
 public class EmailController {
 	
 	@RequestMapping("sendEmail")
-	public String emailPage(@ModelAttribute("emailDTO") EmailDTO emailDTO) {
+	public String emailPage(@CookieValue("LCApp.userName") String userName, @ModelAttribute("emailDTO") EmailDTO emailDTO, Model model) {
+		
+	model.addAttribute("UserName", userName);
 		
 		return "SendEmail";
 		
