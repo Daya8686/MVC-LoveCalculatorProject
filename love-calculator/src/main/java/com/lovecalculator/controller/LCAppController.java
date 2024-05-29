@@ -22,10 +22,9 @@ public class LCAppController {
 	}
 	
 	@RequestMapping("processData") // we must write @Valid at before @ModelAttribute and BindidngResult after DTO obj
-	public String processData(@Valid @ModelAttribute ("userInfo") UserInfoDTO userInfo, BindingResult bindingResult,HttpSession session) {
+	public String processData(@Valid @ModelAttribute ("userInfo") UserInfoDTO userInfo, BindingResult bindingResult) {
 		
-		session.setAttribute("UserName", userInfo.getYourName()); 
-		//from here we are setting session which will be able to access in every jsp page.
+	
 				
 		 System.out.println(userInfo);
 		 System.out.println(bindingResult.hasErrors());
