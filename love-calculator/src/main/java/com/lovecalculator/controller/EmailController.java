@@ -15,9 +15,7 @@ import jakarta.validation.Valid;
 public class EmailController {
 	
 	@RequestMapping("sendEmail")
-	public String emailPage(@CookieValue("LCApp.userName") String userName, @ModelAttribute("emailDTO") EmailDTO emailDTO, Model model) {
-		
-	model.addAttribute("UserName", userName);
+	public String emailPage(@ModelAttribute("emailDTO") EmailDTO emailDTO, Model model) {
 		
 		return "SendEmail";
 		
