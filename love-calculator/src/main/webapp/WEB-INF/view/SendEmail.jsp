@@ -43,7 +43,7 @@ input[type="text"] {
 </style>
 </head>
 <body>
-	<h1>Hello ${UserName} </h1>
+	<h1>Hello ${userInfo.yourName} </h1>
 	<br>
 	<h3>Send Result to your email</h3>
 	<br>
