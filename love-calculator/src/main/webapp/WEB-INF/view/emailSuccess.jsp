@@ -1,16 +1,64 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Result Sent</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .message-container {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 50%;
+        max-width: 500px;
+        min-width: 300px;
+    }
+
+    h1 {
+        color: #ff4081;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    a:hover {
+        background-color: #45a049;
+    }
+</style>
 </head>
 <body>
-<h1>Hello ${userInfo.yourName}</h1>
-<h3>Successfully sent the result to ${emailDTO.userEmail}</h3>
-<a href="<c:url value="/" />">Back to Calculator</a>
-
+    <div class="message-container">
+        <h1>Hello ${userGender} ${userInfo.yourName}</h1>
+        <h3>Successfully sent the result to ${emailDTO.userEmail}</h3>
+        <a href="<c:url value='/' />">Back to Calculator</a>
+    </div>
 </body>
 </html>

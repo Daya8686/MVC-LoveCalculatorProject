@@ -10,6 +10,9 @@ public class UserInfoDTO {
 	@Size(min = 3, max = 25, message = "* Your Name feld must contains min 3 and max 25 charaters")
 	private String yourName;
 	
+	@NotBlank(message = "* Your Gender must be selected!")
+	private String gender;
+	
 	@NotBlank(message = "* Crush Name can not be left blank")
 	@Size(min = 3, max = 25, message = "* Your Name feld must contains min 3 and max 25 charaters")
 	private String crushName;
@@ -35,11 +38,19 @@ public class UserInfoDTO {
 	public void setCrushName(String crushName) {
 		this.crushName = crushName;
 	}
+
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	@Override
 	public String toString() {
-		return "UserInfoDTO [yourName=" + yourName + ", crushName=" + crushName + ", termsAndCondition="
-				+ termsAndCondition + "]";
+		return "UserInfoDTO [yourName=" + yourName + ", gender=" + gender + ", crushName=" + crushName
+				+ ", termsAndCondition=" + termsAndCondition + "]";
 	}
+	
 	
 	
 	

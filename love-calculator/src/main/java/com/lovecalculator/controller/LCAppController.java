@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.lovecalculator.DTO.UserInfoDTO;
@@ -17,7 +18,9 @@ public class LCAppController {
 	
 	@RequestMapping("/")
 	public String welcomePage( Model model) {
+		
 		model.addAttribute("userInfo", new UserInfoDTO());
+		
 //		System.out.println(userInfoDTO);
 		return "Home";
 	}

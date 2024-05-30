@@ -10,13 +10,26 @@
 	function validateInput() {
 		var yourName = document.getElementById("yourName").value;
 		var crushName = document.getElementById("crushName").value;
+		var genderRadios = document.querySelectorAll(".optionsAndcheckbox");
+	    var genderValue = "";
+
+	    for (var i = 0; i < genderRadios.length; i++) {
+	        if (genderRadios[i].checked) {
+	            genderValue = genderRadios[i].value;
+	            break;
+	        }
+	    }
+	    
+		
 		if (yourName.length == 0 || crushName.length == 0) {
 			alert("Your Name Or Crush Name can not be left empty!");
 			return false;
 		} else if (yourName.length < 3 || crushName.length < 3) {
 			alert("Your Name Or Crush Name must contain atleast 3 Characters");
 			return false;
-		} else {
+		}
+		
+		else {
 			var res;
 			var termsAndCondition = document
 					.getElementById("termsAndCondition").checked;
@@ -24,7 +37,12 @@
 			if (!termsAndCondition) {
 				alert("You need to accept the terms and conditions to proceed");
 				res = false;
-			} else {
+			}
+			else if(genderValue.length==0){
+				alert("Gender feild is empty!!");
+				return false;
+			}
+			else {
 				res = true;
 			}
 			return res;
@@ -100,11 +118,20 @@ input[type="submit"]:hover {
 		<h1>Love Calculator</h1>
 		<hr />
 		<div class="container">
-			<form:form id="loveForm" action="processData" method="post" modelAttribute="userInfo" onsubmit="return validateInput()">
+			<form:form id="loveForm" action="processData" method="post"
+				modelAttribute="userInfo" onsubmit="return validateInput()">
 				<label for="yourName:">Your Name:</label>
 				<br>
 				<form:input id="yourName" path="yourName" />
 				<form:errors path="yourName" class="error" />
+				<br>
+				<label for="gender">Gender:</label>
+				<form:radiobutton path="gender" value="Male" label="Male" 
+					class="optionsAndcheckbox" />
+				<form:radiobutton path="gender" value="Female" label="Female" 
+					class="optionsAndcheckbox" />
+				<br>
+				<form:errors path="gender" class="error"/>
 				<br>
 				<label for="crushName:">Crush Name:</label>
 				<br>
@@ -112,12 +139,13 @@ input[type="submit"]:hover {
 				<form:errors path="crushName" class="error" />
 				<br>
 				<form:checkbox path="termsAndCondition" id="termsAndCondition" />
-				<label for="termsAndCondition">Agreeing Terms and
-					Conditions<i>(This is only for fun)</i>
+				<label for="termsAndCondition">Agreeing Terms and Conditions<i>(This
+						is only for fun)</i>
 				</label>
 				<br>
-				<form:errors path="termsAndCondition" class="error"  />
-				<br><br/>
+				<form:errors path="termsAndCondition" class="error" />
+				<br>
+				<br />
 				<input type="submit" value="calculate">
 			</form:form>
 		</div>
