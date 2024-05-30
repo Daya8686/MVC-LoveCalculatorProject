@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Hello</h1>
+<h1>Hello ${userInfo.yourName}</h1>
 <h3>Successfully sent the result to ${emailDTO.userEmail}</h3>
 <a href="<c:url value="/" />">Back to Calculator</a>
 
