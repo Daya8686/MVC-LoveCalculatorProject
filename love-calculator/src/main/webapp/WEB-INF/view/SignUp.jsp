@@ -173,6 +173,8 @@ h3 {
 			<input type="submit" value="Register">
 
 		</form:form>
+		
+		
 	</div>
 
 </body>

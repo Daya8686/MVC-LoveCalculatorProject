@@ -17,13 +17,14 @@ import com.lovecalculator.DTO.SignUpInfoDTO;
 import com.lovecalculator.customeditors.UsernameEditor;
 import com.lovecalculator.springvalidation.RegisterPropsPageValidation;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
 public class UserRegistrationController {
 
 	@RequestMapping("signup")
-	public String loginPage(@ModelAttribute("signUpInfo") SignUpInfoDTO signUpInfoDTO) {
+	public String loginPage(@ModelAttribute("signUpInfo") SignUpInfoDTO signUpInfoDTO, HttpSession  httpSession) {
 		// we are using print method to send the string country code and mobile number
 		// by converting to phone object
 		Phone phone = new Phone();
@@ -61,13 +62,13 @@ public class UserRegistrationController {
 	@InitBinder
 	public void initBinder (WebDataBinder binder) {
 		
-		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true); 
-		binder.registerCustomEditor(String.class, "name", stringTrimmerEditor); 
+		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true); //Trimmes empty spaces of string
+		binder.registerCustomEditor(String.class, "name", stringTrimmerEditor); //Predefine Editor
 		//if we set true it gives null
 		//	Else it will give if we set false then it will give "" empty string	
 		// we have given @NotEmpty annotation in DTO object and user get error message when user send empty data
-		// we user send blank spaces like this "    " then it will not give error message 
-		//so here we can use this Databinder to bind the data in required eay and then send to DTO of controller
+		// when user send blank spaces like this "    " then it will not give error message 
+		//so here we can use this Databinder to bind the data in required way and then send to DTO of controller
 		UsernameEditor editor = new UsernameEditor();
 		//here we are using editor
 		binder.registerCustomEditor(String.class,"userName", editor); //This is to make username in Upper Case
