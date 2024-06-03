@@ -29,7 +29,7 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 		return internalResourceViewResolver;
 	}
 	
-
+	
 
 	@Bean
 	public MessageSource messageSource() {

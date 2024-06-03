@@ -1,0 +1,140 @@
+2024-06-04 00:47:22,215 DEBUG [com.lovecalculator.config.DispacherServeltAutoConfig] - No ContextLoaderListener registered, as createRootApplicationContext() did not return an application context
+2024-06-04 00:47:22,287 INFO [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcher'
+2024-06-04 00:47:22,338 DEBUG [org.springframework.web.context.support.AnnotationConfigWebApplicationContext] - Refreshing WebApplicationContext for namespace 'dispatcher-servlet'
+2024-06-04 00:47:22,439 DEBUG [org.springframework.web.context.support.AnnotationConfigWebApplicationContext] - Registering component classes: [class com.lovecalculator.config.LoveCalculatorConfig]
+2024-06-04 00:47:22,553 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalConfigurationAnnotationProcessor'
+2024-06-04 00:47:22,689 DEBUG [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] - Identified candidate component class: file [D:\Spring Boot Practice\MVC\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\love-calculator\WEB-INF\classes\com\lovecalculator\controller\billController.class]
+2024-06-04 00:47:22,690 DEBUG [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] - Identified candidate component class: file [D:\Spring Boot Practice\MVC\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\love-calculator\WEB-INF\classes\com\lovecalculator\controller\EmailController.class]
+2024-06-04 00:47:22,694 DEBUG [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] - Identified candidate component class: file [D:\Spring Boot Practice\MVC\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\love-calculator\WEB-INF\classes\com\lovecalculator\controller\LCAppController.class]
+2024-06-04 00:47:22,694 DEBUG [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] - Identified candidate component class: file [D:\Spring Boot Practice\MVC\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\love-calculator\WEB-INF\classes\com\lovecalculator\controller\TestController.class]
+2024-06-04 00:47:22,695 DEBUG [org.springframework.context.annotation.ClassPathBeanDefinitionScanner] - Identified candidate component class: file [D:\Spring Boot Practice\MVC\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\love-calculator\WEB-INF\classes\com\lovecalculator\controller\UserRegistrationController.class]
+2024-06-04 00:47:23,069 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerProcessor'
+2024-06-04 00:47:23,075 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.event.internalEventListenerFactory'
+2024-06-04 00:47:23,080 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalAutowiredAnnotationProcessor'
+2024-06-04 00:47:23,087 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.context.annotation.internalCommonAnnotationProcessor'
+2024-06-04 00:47:23,099 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'messageSource'
+2024-06-04 00:47:23,105 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'loveCalculatorConfig'
+2024-06-04 00:47:23,145 DEBUG [org.springframework.ui.context.support.UiApplicationContextUtils] - Unable to locate ThemeSource with name 'themeSource': using default [org.springframework.ui.context.support.ResourceBundleThemeSource@22105c76]
+2024-06-04 00:47:23,152 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'billController'
+2024-06-04 00:47:23,165 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'emailController'
+2024-06-04 00:47:23,170 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'LCAppController'
+2024-06-04 00:47:23,171 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'testController'
+2024-06-04 00:47:23,172 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'userRegistrationController'
+2024-06-04 00:47:23,175 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration'
+2024-06-04 00:47:23,291 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'requestMappingHandlerMapping'
+2024-06-04 00:47:23,299 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'mvcContentNegotiationManager'
+2024-06-04 00:47:23,336 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'mvcConversionService'
+2024-06-04 00:47:23,472 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'mvcResourceUrlProvider'
+2024-06-04 00:47:23,476 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'requestMappingHandlerMapping' via factory method to bean named 'mvcContentNegotiationManager'
+2024-06-04 00:47:23,477 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'requestMappingHandlerMapping' via factory method to bean named 'mvcConversionService'
+2024-06-04 00:47:23,477 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'requestMappingHandlerMapping' via factory method to bean named 'mvcResourceUrlProvider'
+2024-06-04 00:47:23,585 DEBUG [_org.springframework.web.servlet.HandlerMapping.Mappings] - 
+	c.l.c.billController:
+	{ [/bill]}: billPage(Bill)
+	{ [/billDetails]}: billDetails(Bill,BindingResult)
+2024-06-04 00:47:23,602 DEBUG [_org.springframework.web.servlet.HandlerMapping.Mappings] - 
+	c.l.c.EmailController:
+	{ [/sendEmail]}: emailPage(UserInfoDTO,EmailDTO,Model)
+	{ [/emailSent]}: emailSuccess(EmailDTO,BindingResult,UserInfoDTO,Model)
+2024-06-04 00:47:23,608 DEBUG [_org.springframework.web.servlet.HandlerMapping.Mappings] - 
+	c.l.c.LCAppController:
+	{ [/]}: welcomePage(Model)
+	{ [/processData]}: processData(UserInfoDTO,BindingResult)
+2024-06-04 00:47:23,612 DEBUG [_org.springframework.web.servlet.HandlerMapping.Mappings] - 
+	c.l.c.TestController:
+	{ [/test]}: myTest()
+2024-06-04 00:47:23,614 DEBUG [_org.springframework.web.servlet.HandlerMapping.Mappings] - 
+	c.l.c.UserRegistrationController:
+	{ [/signup]}: loginPage(SignUpInfoDTO,HttpSession)
+	{ [/signupCheck]}: loginCheckPage(SignUpInfoDTO,BindingResult)
+2024-06-04 00:47:23,621 DEBUG [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] - 9 mappings in 'requestMappingHandlerMapping'
+2024-06-04 00:47:23,622 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'mvcPatternParser'
+2024-06-04 00:47:23,622 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'mvcUrlPathHelper'
+2024-06-04 00:47:23,623 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'mvcPathMatcher'
+2024-06-04 00:47:23,624 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'viewControllerHandlerMapping'
+2024-06-04 00:47:23,625 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'viewControllerHandlerMapping' via factory method to bean named 'mvcConversionService'
+2024-06-04 00:47:23,625 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'viewControllerHandlerMapping' via factory method to bean named 'mvcResourceUrlProvider'
+2024-06-04 00:47:23,625 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'beanNameHandlerMapping'
+2024-06-04 00:47:23,626 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'beanNameHandlerMapping' via factory method to bean named 'mvcConversionService'
+2024-06-04 00:47:23,627 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'beanNameHandlerMapping' via factory method to bean named 'mvcResourceUrlProvider'
+2024-06-04 00:47:23,629 DEBUG [_org.springframework.web.servlet.HandlerMapping.Mappings] - 'beanNameHandlerMapping' {}
+2024-06-04 00:47:23,630 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'routerFunctionMapping'
+2024-06-04 00:47:23,630 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'routerFunctionMapping' via factory method to bean named 'mvcConversionService'
+2024-06-04 00:47:23,631 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'routerFunctionMapping' via factory method to bean named 'mvcResourceUrlProvider'
+2024-06-04 00:47:23,655 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'resourceHandlerMapping'
+2024-06-04 00:47:23,656 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'resourceHandlerMapping' via factory method to bean named 'mvcContentNegotiationManager'
+2024-06-04 00:47:23,656 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'resourceHandlerMapping' via factory method to bean named 'mvcConversionService'
+2024-06-04 00:47:23,656 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'resourceHandlerMapping' via factory method to bean named 'mvcResourceUrlProvider'
+2024-06-04 00:47:23,656 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'defaultServletHandlerMapping'
+2024-06-04 00:47:23,658 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'requestMappingHandlerAdapter'
+2024-06-04 00:47:23,658 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'mvcValidator'
+2024-06-04 00:47:23,659 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'validator'
+2024-06-04 00:47:23,699 DEBUG [org.jboss.logging] - Logging Provider: org.jboss.logging.Log4jLoggerProvider
+2024-06-04 00:47:23,727 DEBUG [org.hibernate.validator.messageinterpolation.ResourceBundleMessageInterpolator] - Loaded expression factory via original TCCL
+2024-06-04 00:47:23,752 INFO [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 8.0.1.Final
+2024-06-04 00:47:23,763 DEBUG [org.hibernate.validator.internal.engine.AbstractConfigurationImpl] - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2024-06-04 00:47:23,765 DEBUG [org.hibernate.validator.internal.engine.AbstractConfigurationImpl] - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2024-06-04 00:47:23,773 DEBUG [org.hibernate.validator.internal.xml.config.ValidationXmlParser] - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2024-06-04 00:47:23,776 DEBUG [org.hibernate.validator.internal.xml.config.ResourceLoaderHelper] - Trying to load META-INF/validation.xml via user class loader
+2024-06-04 00:47:23,778 DEBUG [org.hibernate.validator.internal.xml.config.ResourceLoaderHelper] - Trying to load META-INF/validation.xml via TCCL
+2024-06-04 00:47:23,778 DEBUG [org.hibernate.validator.internal.xml.config.ResourceLoaderHelper] - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2024-06-04 00:47:23,779 DEBUG [org.hibernate.validator.internal.xml.config.ValidationXmlParser] - No META-INF/validation.xml found. Using annotation based configuration only.
+2024-06-04 00:47:23,792 DEBUG [org.hibernate.validator.internal.engine.resolver.TraversableResolvers] - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2024-06-04 00:47:24,070 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2024-06-04 00:47:24,090 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2024-06-04 00:47:24,090 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2024-06-04 00:47:24,090 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2024-06-04 00:47:24,090 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2024-06-04 00:47:24,090 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2024-06-04 00:47:24,148 DEBUG [org.hibernate.validator.internal.engine.AbstractConfigurationImpl] - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
+2024-06-04 00:47:24,148 DEBUG [org.hibernate.validator.internal.engine.AbstractConfigurationImpl] - Setting custom ConstraintValidatorFactory of type org.springframework.validation.beanvalidation.SpringConstraintValidatorFactory
+2024-06-04 00:47:24,149 DEBUG [org.hibernate.validator.internal.xml.config.ValidationXmlParser] - Trying to load META-INF/validation.xml for XML based Validator configuration.
+2024-06-04 00:47:24,149 DEBUG [org.hibernate.validator.internal.xml.config.ResourceLoaderHelper] - Trying to load META-INF/validation.xml via user class loader
+2024-06-04 00:47:24,149 DEBUG [org.hibernate.validator.internal.xml.config.ResourceLoaderHelper] - Trying to load META-INF/validation.xml via TCCL
+2024-06-04 00:47:24,149 DEBUG [org.hibernate.validator.internal.xml.config.ResourceLoaderHelper] - Trying to load META-INF/validation.xml via Hibernate Validator's class loader
+2024-06-04 00:47:24,149 DEBUG [org.hibernate.validator.internal.xml.config.ValidationXmlParser] - No META-INF/validation.xml found. Using annotation based configuration only.
+2024-06-04 00:47:24,153 DEBUG [org.hibernate.validator.internal.engine.resolver.TraversableResolvers] - Cannot find jakarta.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
+2024-06-04 00:47:24,157 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000252: Using org.hibernate.validator.internal.engine.DefaultPropertyNodeNameProvider as property node name provider.
+2024-06-04 00:47:24,157 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000234: Using org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator as ValidatorFactory-scoped message interpolator.
+2024-06-04 00:47:24,157 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000234: Using org.hibernate.validator.internal.engine.resolver.TraverseAllTraversableResolver as ValidatorFactory-scoped traversable resolver.
+2024-06-04 00:47:24,157 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000234: Using org.hibernate.validator.internal.util.ExecutableParameterNameProvider as ValidatorFactory-scoped parameter name provider.
+2024-06-04 00:47:24,157 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000234: Using org.hibernate.validator.internal.engine.DefaultClockProvider as ValidatorFactory-scoped clock provider.
+2024-06-04 00:47:24,157 DEBUG [org.hibernate.validator.internal.engine.ValidatorFactoryConfigurationHelper] - HV000234: Using org.hibernate.validator.internal.engine.scripting.DefaultScriptEvaluatorFactory as ValidatorFactory-scoped script evaluator factory.
+2024-06-04 00:47:24,159 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'requestMappingHandlerAdapter' via factory method to bean named 'mvcContentNegotiationManager'
+2024-06-04 00:47:24,159 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'requestMappingHandlerAdapter' via factory method to bean named 'mvcConversionService'
+2024-06-04 00:47:24,159 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'requestMappingHandlerAdapter' via factory method to bean named 'mvcValidator'
+2024-06-04 00:47:24,209 DEBUG [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter] - ControllerAdvice beans: none
+2024-06-04 00:47:24,295 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'handlerFunctionAdapter'
+2024-06-04 00:47:24,300 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'mvcUriComponentsContributor'
+2024-06-04 00:47:24,301 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'mvcUriComponentsContributor' via factory method to bean named 'mvcConversionService'
+2024-06-04 00:47:24,301 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'mvcUriComponentsContributor' via factory method to bean named 'requestMappingHandlerAdapter'
+2024-06-04 00:47:24,305 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'httpRequestHandlerAdapter'
+2024-06-04 00:47:24,306 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'simpleControllerHandlerAdapter'
+2024-06-04 00:47:24,307 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'handlerExceptionResolver'
+2024-06-04 00:47:24,307 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'handlerExceptionResolver' via factory method to bean named 'mvcContentNegotiationManager'
+2024-06-04 00:47:24,310 DEBUG [org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver] - ControllerAdvice beans: none
+2024-06-04 00:47:24,316 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'mvcViewResolver'
+2024-06-04 00:47:24,317 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Autowiring by type from bean name 'mvcViewResolver' via factory method to bean named 'mvcContentNegotiationManager'
+2024-06-04 00:47:24,324 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'localeResolver'
+2024-06-04 00:47:24,327 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'themeResolver'
+2024-06-04 00:47:24,330 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'flashMapManager'
+2024-06-04 00:47:24,335 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'viewNameTranslator'
+2024-06-04 00:47:24,337 DEBUG [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Creating shared instance of singleton bean 'viewResolver'
+2024-06-04 00:47:24,365 DEBUG [org.springframework.web.servlet.DispatcherServlet] - Detected AcceptHeaderLocaleResolver
+2024-06-04 00:47:24,365 DEBUG [org.springframework.web.servlet.DispatcherServlet] - Detected FixedThemeResolver
+2024-06-04 00:47:24,366 DEBUG [org.springframework.web.servlet.DispatcherServlet] - Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4c25201
+2024-06-04 00:47:24,366 DEBUG [org.springframework.web.servlet.DispatcherServlet] - Detected org.springframework.web.servlet.support.SessionFlashMapManager@4faaff61
+2024-06-04 00:47:24,370 DEBUG [org.springframework.web.servlet.DispatcherServlet] - enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-06-04 00:47:24,372 INFO [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 2083 ms
+2024-06-04 00:47:25,035 DEBUG [org.springframework.web.servlet.DispatcherServlet] - GET "/love-calculator/", parameters={}
+2024-06-04 00:47:25,075 DEBUG [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] - Mapped to com.lovecalculator.controller.LCAppController#welcomePage(Model)
+2024-06-04 00:47:25,123 INFO [com.lovecalculator.controller.LCAppController] - Inside the LCAppController insdie the welcomePage method
+2024-06-04 00:47:25,176 DEBUG [org.springframework.web.servlet.view.JstlView] - View name 'Home', model {userInfo=UserInfoDTO [yourName=null, gender=null, crushName=null, termsAndCondition=false], org.springframework.validation.BindingResult.userInfo=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2024-06-04 00:47:25,190 DEBUG [org.springframework.web.servlet.view.JstlView] - Forwarding to [/WEB-INF/view/Home.jsp]
+2024-06-04 00:47:26,774 DEBUG [org.springframework.web.servlet.DispatcherServlet] - Completed 200 OK
+2024-06-04 00:47:35,991 DEBUG [org.springframework.web.servlet.DispatcherServlet] - POST "/love-calculator/processData", parameters={masked}
+2024-06-04 00:47:35,991 DEBUG [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping] - Mapped to com.lovecalculator.controller.LCAppController#processData(UserInfoDTO, BindingResult)
+2024-06-04 00:47:36,166 INFO [com.lovecalculator.controller.LCAppController] - Inside the processData method after welcomePage method in LCAppContoller
+2024-06-04 00:47:36,167 DEBUG [org.springframework.web.servlet.view.JstlView] - View name 'processData', model {userInfo=UserInfoDTO [yourName=abcd, gender=Male, crushName=123, termsAndCondition=true], org.springframework.validation.BindingResult.userInfo=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2024-06-04 00:47:36,168 DEBUG [org.springframework.web.servlet.view.JstlView] - Forwarding to [/WEB-INF/view/processData.jsp]
+2024-06-04 00:47:36,689 DEBUG [org.springframework.web.servlet.DispatcherServlet] - Completed 200 OK
