@@ -1,4 +1,4 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,35 +7,48 @@
 <meta charset="ISO-8859-1">
 <title>Love Calculation Application</title>
 <script type="text/javascript">
-function validateInput(){
-	var yourName=document.getElementById("yourName").value;
-	var crushName=document.getElementById("crushName").value;
-	if(yourName.length ==0 || crushName.length==0){
-		alert("Your Name Or Crush Name can not be left empty!");
-		return false;
-	}
-	else if (yourName.length <3 || crushName.length<3){
-		alert("Your Name Or Crush Name must contain atleast 3 Characters");
-		return false;
-	}
-	else {
-		var res;
-		var termsAndCondition=document.getElementById("termsAndCondition").checked;
-		console.log(termsAndCondition);
-		if(!termsAndCondition){
-			alert("You need to accept the terms and conditions to proceed");
-		 res= false;
+	function validateInput() {
+		var yourName = document.getElementById("yourName").value;
+		var crushName = document.getElementById("crushName").value;
+		var genderRadios = document.querySelectorAll(".optionsAndcheckbox");
+	    var genderValue = "";
+
+	    for (var i = 0; i < genderRadios.length; i++) {
+	        if (genderRadios[i].checked) {
+	            genderValue = genderRadios[i].value;
+	            break;
+	        }
+	    }
+	    
+		
+		if (yourName.length == 0 || crushName.length == 0) {
+			alert("Your Name Or Crush Name can not be left empty!");
+			return false;
+		} else if (yourName.length < 3 || crushName.length < 3) {
+			alert("Your Name Or Crush Name must contain atleast 3 Characters");
+			return false;
 		}
+		
 		else {
-		res=true;
+			var res;
+			var termsAndCondition = document
+					.getElementById("termsAndCondition").checked;
+			console.log(termsAndCondition);
+			if (!termsAndCondition) {
+				alert("You need to accept the terms and conditions to proceed");
+				res = false;
+			}
+			else if(genderValue.length==0){
+				alert("Gender feild is empty!!");
+				return false;
+			}
+			else {
+				res = true;
+			}
+			return res;
 		}
-		return res;
+
 	}
-	
-}
-
-
-
 </script>
 <style>
 #outerContainer {
@@ -93,6 +106,11 @@ input[type="submit"] {
 input[type="submit"]:hover {
 	background-color: #45a049;
 }
+
+.error {
+	color: red;
+	text-align: left;
+}
 </style>
 </head>
 <body>
@@ -100,16 +118,35 @@ input[type="submit"]:hover {
 		<h1>Love Calculator</h1>
 		<hr />
 		<div class="container">
-			<form:form id="loveForm" action="processData" method="post" modelAttribute="userInfoDefault" >
-				<label for="yourName:">Your Name:</label><br>
-				 <form:input id="yourName" path="yourName"/>
-				 <br>
-				<label for="crushName:">Crush Name:</label><br>
-				 <form:input  id="crushName" path="crushName" />
-				 <br>
-				 <form:checkbox  path="termsAndCondition" id="termsAndCondition"/>
-				 <label for="termsAndCondition" >Agreeing Terms and Conditions<i>(This is only for fun)</i></label>
-				<br> <input type="submit" value="calculate">
+			<form:form id="loveForm" action="processData" method="post"
+				modelAttribute="userInfo" onsubmit="return validateInput()">
+				<label for="yourName:">Your Name:</label>
+				<br>
+				<form:input id="yourName" path="yourName" />
+				<form:errors path="yourName" class="error" />
+				<br>
+				<label for="gender">Gender:</label>
+				<form:radiobutton path="gender" value="Male" label="Male" 
+					class="optionsAndcheckbox" />
+				<form:radiobutton path="gender" value="Female" label="Female" 
+					class="optionsAndcheckbox" />
+				<br>
+				<form:errors path="gender" class="error"/>
+				<br>
+				<label for="crushName:">Crush Name:</label>
+				<br>
+				<form:input id="crushName" path="crushName" />
+				<form:errors path="crushName" class="error" />
+				<br>
+				<form:checkbox path="termsAndCondition" id="termsAndCondition" />
+				<label for="termsAndCondition">Agreeing Terms and Conditions<i>(This
+						is only for fun)</i>
+				</label>
+				<br>
+				<form:errors path="termsAndCondition" class="error" />
+				<br>
+				<br />
+				<input type="submit" value="calculate">
 			</form:form>
 		</div>
 	</div>

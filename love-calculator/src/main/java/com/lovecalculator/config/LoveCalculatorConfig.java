@@ -14,16 +14,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.lovecalculator.converter.CreditCardConverter;
 import com.lovecalculator.converter.CreditCardCoverterFromObjToString;
-import com.lovecalculator.converter.CurrencyConverter;
-import com.lovecalculator.formatter.AmountFormatter;
-import com.lovecalculator.formatter.CreditCardFormatter;
 import com.lovecalculator.formatter.phoneNumberFormatter;
 
 @Configuration
-@ComponentScan (basePackages = "com")
+@ComponentScan(basePackages = "com")
 @EnableWebMvc
 public class LoveCalculatorConfig implements WebMvcConfigurer {
-	
+
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
@@ -32,14 +29,16 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 		return internalResourceViewResolver;
 	}
 	
-	
+
+
 	@Bean
-	public MessageSource messageSource(){
+	public MessageSource messageSource() {
 		ResourceBundleMessageSource bundleMessageSource = new ResourceBundleMessageSource();
 		bundleMessageSource.addBasenames("message");
 		return bundleMessageSource;
-		
+
 	}
+
 	@Bean
 	public LocalValidatorFactoryBean validator() {
 		LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
@@ -48,23 +47,21 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 	}
 	
 	
+
 	@Override
 	public Validator getValidator() {
 		return validator();
 	}
-	
+
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
 		registry.addFormatter(new phoneNumberFormatter());
 //		registry.addFormatter(new CreditCardFormatter()); //Commenting this for using converter instead Converter
 //		registry.addFormatter(new AmountFormatter()); // here we are using Custom Editor
-		registry.addConverter(new CreditCardConverter()); //this is for String to CreditCard Object
-		registry.addConverter(new CreditCardCoverterFromObjToString()); //this is for CreditCard Object to String to display
+		registry.addConverter(new CreditCardConverter()); // this is for String to CreditCard Object
+		registry.addConverter(new CreditCardCoverterFromObjToString()); // this is for CreditCard Object to String to
+																		// display
 //		registry.addConverter(new CurrencyConverter()); // This is amount converter from eur ->EUR toUppercase
 	}
-	
-	
-	
-	
 
 }
