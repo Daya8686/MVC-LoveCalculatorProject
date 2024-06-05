@@ -1,11 +1,15 @@
 package com.lovecalculator.config;
 
+import java.util.Properties;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -46,6 +50,23 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 		return localValidatorFactoryBean;
 	}
 	
+	@Bean
+	public JavaMailSenderImpl getJavaMailSender() {
+		JavaMailSenderImpl javaMailSenderImpl =new JavaMailSenderImpl();
+		javaMailSenderImpl.setHost("smtp.gmail.com");
+		javaMailSenderImpl.setUsername("dhondidaya8080@gmail.com");
+		javaMailSenderImpl.setPassword("bgag qttk bvoe dgas");
+		javaMailSenderImpl.setPort(587);
+		javaMailSenderImpl.setJavaMailProperties(gmailProperties());
+		return javaMailSenderImpl;
+		
+	}
+	public Properties gmailProperties() {
+		Properties properties =new Properties();
+		properties.put(	"mail.smtp.starttls.enable", true);
+		properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+		return properties;
+	}
 	
 
 	@Override
