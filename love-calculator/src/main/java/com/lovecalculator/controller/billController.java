@@ -22,7 +22,7 @@ import jakarta.validation.Valid;
 
 @Controller
 public class billController {
-	private static final Logger LOGGER = LoggerFactory.getLogger(LCAppController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(billController.class);
 	@RequestMapping("bill")
 	public String billPage(@ModelAttribute ("billInfo") Bill bill) {
 		CreditCard card= new CreditCard();

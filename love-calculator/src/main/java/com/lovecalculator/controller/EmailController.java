@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
 @Controller
 public class EmailController {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(LCAppController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(EmailController.class);
 	
 	@RequestMapping("sendEmail")
 	public String emailPage(@SessionAttribute("userInfo") UserInfoDTO userInfo, @ModelAttribute("emailDTO") EmailDTO emailDTO, Model model) {
