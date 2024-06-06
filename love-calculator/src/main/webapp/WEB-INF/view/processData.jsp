@@ -1,10 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Love Calculation Result</title>
+
+<script type="text/javascript">
+function myImageLoader(relationName){
+	console.log(relationName);
+	console.log(relationName.toLowerCase() == 'Enemies');
+	var imageUrl;
+	if(relationName.toLowerCase() === 'friends'){
+		 imageUrl = "<c:url value='/Static/images/friends.png'/>";
+	} else if(relationName.toLowerCase() === 'love'){
+		 imageUrl = "<c:url value='/Static/images/loveCalculator.png'/>";
+	}
+	else if(relationName.toLowerCase() === 'enemies'){
+		 imageUrl = "<c:url value='/Static/images/enemy.png'/>";
+	}
+	else if(relationName.toLowerCase() === 'marriage'){
+		 imageUrl = "<c:url value='/Static/images/Marriage.webp'/>";
+	}
+	else if(relationName.toLowerCase() === 'affection'){
+		 imageUrl = "<c:url value='/Static/images/Affection.png'/>";
+	}
+	else if(relationName.toLowerCase() === 'sister'){
+		 imageUrl = "<c:url value='/Static/images/Sister.png'/>";
+	}
+	else {
+		 imageUrl = "<c:url value='/Static/images/relation.png'/>";
+	}
+	let myImg = document.createElement("img");
+	myImg.setAttribute("src", imageUrl);
+	myImg.setAttribute("alt", "Relation Image");
+	myImg.setAttribute("width", "300px");
+	myImg.setAttribute("height", "250px");
+	let innerDiv=document.querySelector(".inner-div");
+	innerDiv.append(myImg);
+	
+}
+
+window.onload = function() {
+    myImageLoader("${RelationResult}");
+}
+</script>
+
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -64,13 +107,16 @@
 </style>
 </head>
 <body>
-<div class="result-container">
+<div class="result-container" onload="myImageLoader(${RelationResult})">
     <h1>Result</h1>
     <h3>This is the result...... don't take it seriously, it's just for fun 😁😁</h3>
     <p>You Entered Your Name: ${userInfo.yourName}</p>
     <p>You Entered your Crush's Name: ${userInfo.crushName}</p>
     <h4>Relation is (•ˋ _ ˊ•)</h4>
-    <h3>Friends</h3>
+    <h3>${RelationResult}</h3>
+    <div class="inner-div">
+    </div>
+    
     <a href="/love-calculator/sendEmail">Send The Result To Your Email!</a>
 </div>
 </body>

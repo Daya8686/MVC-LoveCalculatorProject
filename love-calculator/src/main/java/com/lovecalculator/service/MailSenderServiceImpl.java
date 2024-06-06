@@ -1,18 +1,20 @@
 package com.lovecalculator.service;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
-import com.lovecalculator.serviceinterfaces.MailSenderProccess;
+import com.lovecalculator.serviceinterfaces.MailSenderService;
 
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 
 @Service
-public class MailSenderService implements MailSenderProccess {
+public class MailSenderServiceImpl implements MailSenderService {
 	@Autowired
 	private JavaMailSenderImpl javaMailSenderImpl;
 
@@ -36,14 +38,23 @@ public class MailSenderService implements MailSenderProccess {
 			helper.setText(htmlMsg, true);
 
 			// Add inline image
-			if(result.equalsIgnoreCase("love")) {
+			if(result.equalsIgnoreCase("Love")) {
 				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/loveCalculator.png"));
 			}
-			else if(result.equalsIgnoreCase("friends")) {
+			else if(result.equalsIgnoreCase("Friends")) {
 				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/friends.png"));
 			}
-			else if(result.equalsIgnoreCase("enemy")) {
+			else if(result.equalsIgnoreCase("Enemies")) {
 				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/enemy.png"));
+			}
+			else if(result.equalsIgnoreCase("Marriage")) {
+				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/Marriage.webp"));
+			}
+			else if(result.equalsIgnoreCase("Affection")) {
+				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/Affection.png"));
+			}
+			else if(result.equalsIgnoreCase("Sister")) {
+				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/Sister.png"));
 			}
 			else {
 				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/relation.png"));
@@ -52,7 +63,14 @@ public class MailSenderService implements MailSenderProccess {
 			javaMailSenderImpl.send(mimeMessage);
 			System.out.println("Email sent successfully");
 
-		} catch (MessagingException e) {
+			
+		}
+		catch (MessagingException e) {
+			e.printStackTrace();
+			return "emailFailed";
+		}
+		
+		catch(Exception e) {
 			e.printStackTrace();
 			return "emailFailed";
 		}

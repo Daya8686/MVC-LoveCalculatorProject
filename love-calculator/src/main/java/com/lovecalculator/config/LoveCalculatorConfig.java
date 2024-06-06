@@ -11,11 +11,11 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.format.FormatterRegistry;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -65,14 +65,13 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 		javaMailSenderImpl.setPassword(environment.getProperty("mail.password"));
 		javaMailSenderImpl.setPort(Integer.parseInt(environment.getProperty("mail.port")));
 		javaMailSenderImpl.setJavaMailProperties(gmailProperties());
-		System.out.println(environment.getProperty("mail.host")+" "+environment.getProperty("mail.username")+" "+environment.getProperty("mail.password"));
+
 //		Spring will pull all the values from properties file
         return  javaMailSenderImpl;
 		
 	}
 	public Properties gmailProperties() {
 		Properties properties =new Properties();
-		System.out.println(environment.getProperty("mail.smtp.starttls")+" "+environment.getProperty("mail.properties.mail.smtp.starttls.enable")+" "+environment.getProperty("mail.smtp.ssl.trust"));
 		properties.put(	environment.getProperty("mail.smtp.starttls"),environment.getProperty("mail.properties.mail.smtp.starttls.enable"));
 		properties.put(environment.getProperty("mail.smtp.ssl.trust"),environment.getProperty("mail.host"));
 		return properties;
@@ -94,5 +93,8 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 																		// display
 //		registry.addConverter(new CurrencyConverter()); // This is amount converter from eur ->EUR toUppercase
 	}
+	
+	
+
 
 }

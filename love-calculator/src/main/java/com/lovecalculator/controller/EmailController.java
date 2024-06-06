@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.lovecalculator.DTO.EmailDTO;
 import com.lovecalculator.DTO.UserInfoDTO;
-import com.lovecalculator.serviceinterfaces.MailSenderProccess;
+import com.lovecalculator.serviceinterfaces.MailSenderService;
 
 import jakarta.validation.Valid;
 
@@ -20,7 +20,7 @@ import jakarta.validation.Valid;
 public class EmailController {
 
 	@Autowired
-	private MailSenderProccess mailSenderImpl;
+	private MailSenderService mailSenderImpl;
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmailController.class);
 
@@ -43,28 +43,30 @@ public class EmailController {
 	}
 
 	@RequestMapping("emailSent")
-	public String emailSuccess( @Valid @ModelAttribute("emailDTO")EmailDTO emailDTO, BindingResult result,@SessionAttribute("userInfo") UserInfoDTO userInfo, Model model) {
+	public String emailSuccess(@Valid @ModelAttribute("emailDTO") EmailDTO emailDTO,
+			@SessionAttribute("RelationResult") String relation, BindingResult result,
+			@SessionAttribute("userInfo") UserInfoDTO userInfo, Model model) {
 		LOGGER.info("Inside Email contoller and inside emailSuccess method");
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			LOGGER.error("EmailDTO has error because information sent from JSP is not satisfied with validation");
 			return "SendEmail";
 		}
-		
+
 		String gender = userInfo.getGender();
-		LOGGER.info("Gender is "+gender);
+		LOGGER.info("Gender is " + gender);
 		String genderIdentity;
-		if(gender.equals("Male")) {
-			genderIdentity="Mr.";
+		if (gender.equals("Male")) {
+			genderIdentity = "Mr.";
+		} else {
+			genderIdentity = "Ms.";
 		}
-		else {
-			genderIdentity="Ms.";
-		}
-		model.addAttribute("userGender",genderIdentity);
-		LOGGER.info("GenderIdentity is "+genderIdentity);
-		String pageResult = mailSenderImpl.sendMail(genderIdentity+" "+userInfo.getYourName(), userInfo.getCrushName(), emailDTO.getUserEmail(), "Friends");
-		
+		model.addAttribute("userGender", genderIdentity);
+		LOGGER.info("GenderIdentity is " + genderIdentity);
+		String pageResult = mailSenderImpl.sendMail(genderIdentity + " " + userInfo.getYourName(),
+				userInfo.getCrushName(), emailDTO.getUserEmail(), relation);
+
 		return pageResult;
-		
+
 	}
 
 }
