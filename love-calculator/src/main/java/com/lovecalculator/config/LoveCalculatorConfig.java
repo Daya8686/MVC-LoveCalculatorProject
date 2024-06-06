@@ -2,11 +2,14 @@ package com.lovecalculator.config;
 
 import java.util.Properties;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.env.Environment;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
@@ -23,8 +26,12 @@ import com.lovecalculator.formatter.phoneNumberFormatter;
 @Configuration
 @ComponentScan(basePackages = "com")
 @EnableWebMvc
+@PropertySource("classpath:email.properties")
 public class LoveCalculatorConfig implements WebMvcConfigurer {
 
+	@Autowired
+	private Environment environment;
+	
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
@@ -53,18 +60,21 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 	@Bean
 	public JavaMailSenderImpl getJavaMailSender() {
 		JavaMailSenderImpl javaMailSenderImpl =new JavaMailSenderImpl();
-		javaMailSenderImpl.setHost("smtp.gmail.com");
-		javaMailSenderImpl.setUsername("dhondidaya8080@gmail.com");
-		javaMailSenderImpl.setPassword("bgag qttk bvoe dgas");
-		javaMailSenderImpl.setPort(587);
+		javaMailSenderImpl.setHost(environment.getProperty("mail.host"));
+		javaMailSenderImpl.setUsername(environment.getProperty("mail.username"));
+		javaMailSenderImpl.setPassword(environment.getProperty("mail.password"));
+		javaMailSenderImpl.setPort(Integer.parseInt(environment.getProperty("mail.port")));
 		javaMailSenderImpl.setJavaMailProperties(gmailProperties());
-		return javaMailSenderImpl;
+		System.out.println(environment.getProperty("mail.host")+" "+environment.getProperty("mail.username")+" "+environment.getProperty("mail.password"));
+//		Spring will pull all the values from properties file
+        return  javaMailSenderImpl;
 		
 	}
 	public Properties gmailProperties() {
 		Properties properties =new Properties();
-		properties.put(	"mail.smtp.starttls.enable", true);
-		properties.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+		System.out.println(environment.getProperty("mail.smtp.starttls")+" "+environment.getProperty("mail.properties.mail.smtp.starttls.enable")+" "+environment.getProperty("mail.smtp.ssl.trust"));
+		properties.put(	environment.getProperty("mail.smtp.starttls"),environment.getProperty("mail.properties.mail.smtp.starttls.enable"));
+		properties.put(environment.getProperty("mail.smtp.ssl.trust"),environment.getProperty("mail.host"));
 		return properties;
 	}
 	
