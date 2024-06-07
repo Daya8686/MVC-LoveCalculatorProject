@@ -38,22 +38,22 @@ public class MailSenderServiceImpl implements MailSenderService {
 			helper.setText(htmlMsg, true);
 
 			// Add inline image
-			if(result.equalsIgnoreCase("Love")) {
+			if(result.equalsIgnoreCase(Relations.L_Meaning_value)) {
 				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/loveCalculator.png"));
 			}
-			else if(result.equalsIgnoreCase("Friends")) {
+			else if(result.equalsIgnoreCase(Relations.F_Meaning_value)) {
 				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/friends.png"));
 			}
-			else if(result.equalsIgnoreCase("Enemies")) {
+			else if(result.equalsIgnoreCase(Relations.E_Meaning_value)) {
 				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/enemy.png"));
 			}
-			else if(result.equalsIgnoreCase("Marriage")) {
+			else if(result.equalsIgnoreCase(Relations.M_Meaning_value)) {
 				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/Marriage.webp"));
 			}
-			else if(result.equalsIgnoreCase("Affection")) {
+			else if(result.equalsIgnoreCase(Relations.A_Meaning_value)) {
 				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/Affection.png"));
 			}
-			else if(result.equalsIgnoreCase("Sister")) {
+			else if(result.equalsIgnoreCase(Relations.S_Meaning_value)) {
 				helper.addInline("loveCalculatorImage", new ClassPathResource("Static/images/Sister.png"));
 			}
 			else {

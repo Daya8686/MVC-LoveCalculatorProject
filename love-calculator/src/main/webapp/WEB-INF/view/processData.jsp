@@ -11,7 +11,7 @@
 <script type="text/javascript">
 function myImageLoader(relationName){
 	console.log(relationName);
-	console.log(relationName.toLowerCase() == 'Enemies');
+	console.log(relationName.toLowerCase() == 'enemies');
 	var imageUrl;
 	if(relationName.toLowerCase() === 'friends'){
 		 imageUrl = "<c:url value='/Static/images/friends.png'/>";
@@ -44,7 +44,7 @@ function myImageLoader(relationName){
 }
 
 window.onload = function() {
-    myImageLoader("${RelationResult}");
+    myImageLoader("${userInfo.relationResult}");
 }
 </script>
 
@@ -107,17 +107,21 @@ window.onload = function() {
 </style>
 </head>
 <body>
-<div class="result-container" onload="myImageLoader(${RelationResult})">
+<div class="result-container" onload="myImageLoader(${userInfo.relationResult})">
     <h1>Result</h1>
     <h3>This is the result...... don't take it seriously, it's just for fun 😁😁</h3>
     <p>You Entered Your Name: ${userInfo.yourName}</p>
     <p>You Entered your Crush's Name: ${userInfo.crushName}</p>
     <h4>Relation is (•ˋ _ ˊ•)</h4>
-    <h3>${RelationResult}</h3>
+    <h3>${userInfo.relationResult}</h3>
     <div class="inner-div">
     </div>
     
-    <a href="/love-calculator/sendEmail">Send The Result To Your Email!</a>
+
+     <a href="<c:url value="/sendEmail" />">Send The Result To Your Email!</a>
+     <!-- This c tags are used to parse the URL and with this we can give only the jsp page uri without
+     context and this will carry the cookies with in url if and only if cookies are disabled by user or else 
+     it will not carry the cookies with url -->
 </div>
 </body>
 </html>

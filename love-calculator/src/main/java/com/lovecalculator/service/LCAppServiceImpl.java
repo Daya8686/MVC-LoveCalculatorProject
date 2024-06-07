@@ -21,32 +21,37 @@ public class LCAppServiceImpl implements LCAppService {
 		repeatingString.append(formula.substring(0, reminderNameValue+1));
 		
 		char result=repeatingString.charAt(bothNames);
-		System.out.println("-------------------------------------------->"+result);
+		
+		String finalResult = relationFinder(result);
+		
+		return finalResult;
+	}
+
+	private String relationFinder(char result) {
 		String finalResult="No Result found";
 		switch(result) {
 		case 'F':
-			finalResult="Friends";
+			finalResult=Relations.F_Meaning_value;
 			break;
 		case 'L':
-			finalResult="Love";
+			finalResult=Relations.L_Meaning_value;
 			break;
 		case 'A':
-			finalResult="Affection";
+			finalResult=Relations.A_Meaning_value;
 			break;
 		case 'M':
-			finalResult="Marriage";
+			finalResult=Relations.M_Meaning_value;
 			break;
 		case 'E':
-			finalResult="Enemies";
+			finalResult=Relations.E_Meaning_value;
 			break;
 		case 'S':
-			finalResult="Sister";
+			finalResult=Relations.S_Meaning_value;
 			break;
 		default :
 			finalResult="No Result found";
 			
 		}
-		
 		return finalResult;
 	}
 

@@ -95,6 +95,11 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 	}
 	
 	
-
+	@Override
+	 public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/Static/**")
+                .addResourceLocations("classpath:/Static/")
+                .setCachePeriod(3600);
+    }
 
 }

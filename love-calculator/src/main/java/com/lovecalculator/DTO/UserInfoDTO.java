@@ -20,6 +20,9 @@ public class UserInfoDTO {
 	@AssertTrue(message = "* Must accept the terms and condition to proceed")
 	private boolean termsAndCondition;
 	
+	private String relationResult;
+	
+	
 	public boolean isTermsAndCondition() {
 		return termsAndCondition;
 	}
@@ -45,11 +48,18 @@ public class UserInfoDTO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
+	public String getRelationResult() {
+		return relationResult;
+	}
+	public void setRelationResult(String relationResult) {
+		this.relationResult = relationResult;
+	}
 	@Override
 	public String toString() {
 		return "UserInfoDTO [yourName=" + yourName + ", gender=" + gender + ", crushName=" + crushName
-				+ ", termsAndCondition=" + termsAndCondition + "]";
+				+ ", termsAndCondition=" + termsAndCondition + ", relationResult=" + relationResult + "]";
 	}
+	
 	
 	
 	
