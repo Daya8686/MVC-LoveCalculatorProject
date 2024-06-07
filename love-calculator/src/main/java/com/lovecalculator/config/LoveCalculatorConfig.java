@@ -94,7 +94,8 @@ public class LoveCalculatorConfig implements WebMvcConfigurer {
 //		registry.addConverter(new CurrencyConverter()); // This is amount converter from eur ->EUR toUppercase
 	}
 	
-	
+	//We need to use addResourseHandler defiantly if we want to use images in jsp because it will help the 
+	//jsp pages to find the images that are stored inside the webapp -> static ->images
 	@Override
 	 public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/Static/**")
