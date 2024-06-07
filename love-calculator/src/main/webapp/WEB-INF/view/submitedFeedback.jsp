@@ -56,10 +56,9 @@
 </head>
 <body>
     <div class="message-container">
-        <h1>Hello ${userGender} ${userInfo.yourName}</h1>
-        <h3>Successfully sent the result to ${emailDTO.userEmail}</h3>
-        <a href="<c:url value='/' />">Back to Calculator</a><br>
-        <a href="<c:url value="/feedback" />">Send Feedback </a>
+    	<h1>Thank You !! 👍</h1>
+        <h3>Feedback Submitted ! 📧</h3>
+        
     </div>
 </body>
 </html>

@@ -61,7 +61,7 @@
     <scope>provided</scope>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+
 <!-- We have added this java bean validation here this is JSR(Java Specification Request) with latest version JSR 380-->
 <!-- This just contains specfication but not implemetation. Implemetation contains in vendors 
 like hibernate validation, apache validation or spring provided validations but we are using 

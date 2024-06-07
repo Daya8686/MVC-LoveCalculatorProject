@@ -14,6 +14,7 @@ import com.lovecalculator.DTO.EmailDTO;
 import com.lovecalculator.DTO.UserInfoDTO;
 import com.lovecalculator.serviceinterfaces.MailSenderService;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
@@ -43,9 +44,9 @@ public class EmailController {
 	}
 
 	@RequestMapping("emailSent")
-	public String emailSuccess(@Valid @ModelAttribute("emailDTO") EmailDTO emailDTO,
-			@SessionAttribute("RelationResult") String relation, BindingResult result,
-			@SessionAttribute("userInfo") UserInfoDTO userInfo, Model model) {
+	public String emailSuccess(@Valid @ModelAttribute("emailDTO") EmailDTO emailDTO, BindingResult result,
+			Model model, HttpSession session) {
+		UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo");
 		LOGGER.info("Inside Email contoller and inside emailSuccess method");
 		if (result.hasErrors()) {
 			LOGGER.error("EmailDTO has error because information sent from JSP is not satisfied with validation");
@@ -63,7 +64,7 @@ public class EmailController {
 		model.addAttribute("userGender", genderIdentity);
 		LOGGER.info("GenderIdentity is " + genderIdentity);
 		String pageResult = mailSenderImpl.sendMail(genderIdentity + " " + userInfo.getYourName(),
-				userInfo.getCrushName(), emailDTO.getUserEmail(), relation);
+				userInfo.getCrushName(), emailDTO.getUserEmail(), userInfo.getRelationResult());
 
 		return pageResult;
 

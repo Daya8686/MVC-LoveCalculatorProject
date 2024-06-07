@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.lovecalculator.DTO.UserInfoDTO;
 import com.lovecalculator.service.LCAppServiceImpl;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 
@@ -40,8 +41,13 @@ public class LCAppController {
 		return "Home";
 	}
 
-	@RequestMapping("processData") // we must write @Valid at before @ModelAttribute and BindidngResult after DTO	// obj
-	public String processData(@Valid UserInfoDTO userInfo, BindingResult bindingResult, Model model) {
+	@RequestMapping("processData") // we must write @Valid at before @ModelAttribute and BindidngResult after DTO obj
+	public String processData(@Valid UserInfoDTO userInfo, BindingResult bindingResult, Model model,HttpSession session) {
+		
+//		Using both SessionAttributes and HttpSession because when we are not using @ModelAttribute in this method
+//		Then the sessionAttributes we are unable to fetch data inside any
+//		different controller by @SessionAttribute. THIS BOTH ARE DIFFERENT
+		session.setAttribute("userInfo", userInfo);
 		
 		if(model.getAttribute("cookiesTest")==null) {
 			return "enableCookies"; //after submitting this page it will check for cookies from session
@@ -49,6 +55,7 @@ public class LCAppController {
 		}
 		model.addAttribute("userInfo", userInfo);
 		model.addAttribute(BindingResult.MODEL_KEY_PREFIX+"userInfo", bindingResult);
+		
 		//If we want to persist userInfo with session then we need to write manually model and @Valid annotation
 		//must be after DTO object and we need to add the error messages that must be displayed in JSP
 		//By adding in side model by using this BindingResult.MODEL_KEY_PREFIX+"userInfo"
