@@ -49,7 +49,7 @@ public class LCAppController {
 //		different controller by @SessionAttribute. HTTPSESSION AND SESSION THIS BOTH ARE DIFFERENT
 		session.setAttribute("userInfo", userInfo);
 		
-		if(model.getAttribute("cookiesTest")==null) {
+		if(session.getAttribute("cookiesTest")==null) {
 			return "enableCookies"; //after submitting this page it will check for cookies from session
 			// if there is no cookies then it will send enableCookies page to user
 		}

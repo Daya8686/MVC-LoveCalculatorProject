@@ -23,10 +23,16 @@ public class FeedbackController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(FeedbackController.class);
 	
 	@Autowired
-	FeedbackServiceImpl feedbackServiceImpl;
+	private FeedbackServiceImpl feedbackServiceImpl;
 
 	@RequestMapping("feedback")
 	public String feedback(@ModelAttribute("userFeedback") UserFeedBack userfeed, HttpSession session) {
+		LOGGER.info("Inside feedback method of FeedbackController");
+		if(session.getAttribute("cookiesTest")==null) {
+			LOGGER.info("User disabled cookies so default page is displayed");
+			return "enableCookies"; //after submitting this page it will check for cookies from session
+			// if there is no cookies then it will send enableCookies page to user
+		}
 		String genderAndName = (String) session.getAttribute("genderAndName");
 		String userEmail=(String) session.getAttribute("userEmail");
 		LOGGER.info("User Name with gender indentity Information from session " + genderAndName);
@@ -39,8 +45,15 @@ public class FeedbackController {
 	}
 
 	@RequestMapping("submitFeedback")
-	public String submitFeedback(@Valid @ModelAttribute("userFeedback") UserFeedBack userfeed, BindingResult result) {
-		LOGGER.info("Inside submitFeedback method");
+	public String submitFeedback(@Valid @ModelAttribute("userFeedback") UserFeedBack userfeed, BindingResult result,HttpSession session) {
+		
+		LOGGER.info("Inside submitFeedback method of FeedbackController");
+		if(session.getAttribute("cookiesTest")==null) {
+			LOGGER.info("User disabled cookies so default page is displayed");
+			return "enableCookies"; //after submitting this page it will check for cookies from session
+			// if there is no cookies then it will send enableCookies page to user
+		}
+		
 		if (result.hasErrors()) {
 			LOGGER.error("Error inside submitFeedback Method");
 			List<FieldError> fieldErrors = result.getFieldErrors();

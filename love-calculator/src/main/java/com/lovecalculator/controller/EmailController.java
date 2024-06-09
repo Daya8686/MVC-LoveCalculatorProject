@@ -28,6 +28,12 @@ public class EmailController {
 	@RequestMapping("sendEmail")
 	public String emailPage(@SessionAttribute("userInfo") UserInfoDTO userInfo,
 			@ModelAttribute("emailDTO") EmailDTO emailDTO, Model model, HttpSession session) {
+		LOGGER.info("Inside emailpage method of EmailController class");
+		if(session.getAttribute("cookiesTest")==null) {
+			LOGGER.info("User disabled cookies so default page is displayed");
+			return "enableCookies"; //after submitting this page it will check for cookies from session
+			// if there is no cookies then it will send enableCookies page to user
+		}
 		String gender = userInfo.getGender();
 		LOGGER.info("Inside Email Controller inside emailPage method");
 		LOGGER.info("Gender is " + gender);
@@ -48,6 +54,12 @@ public class EmailController {
 	@RequestMapping("emailSent")
 	public String emailSuccess(@Valid @ModelAttribute("emailDTO") EmailDTO emailDTO, BindingResult result,
 			Model model, HttpSession session) {
+		LOGGER.info("Inside emailSuccess method of EmailController class");
+		if(session.getAttribute("cookiesTest")==null) {
+			LOGGER.info("User disabled cookies so default page is displayed");
+			return "enableCookies"; //after submitting this page it will check for cookies from session
+			// if there is no cookies then it will send enableCookies page to user
+		}
 		UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo"); 
 		String genderAndName=(String)session.getAttribute("genderAndName");
 		session.setAttribute("userEmail", emailDTO.getUserEmail());

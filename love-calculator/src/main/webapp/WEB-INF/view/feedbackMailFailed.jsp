@@ -30,6 +30,19 @@
         max-width: 500px;
         min-width: 300px;
     }
+     a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+
+    a:hover {
+        background-color: #45a049;
+    }
     
 </style>
 </head>
@@ -38,6 +51,7 @@
 <h1>Something Went Wrong</h1>
 <p>Unable to Send Feedback 🫠.</p><br>
 <p>Please Check your details !!</p>
+ <a href="<c:url value='/' />">Back to Calculator</a><br>
 </div>
 </body>
 </html>
