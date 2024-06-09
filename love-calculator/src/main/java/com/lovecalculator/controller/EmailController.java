@@ -27,7 +27,7 @@ public class EmailController {
 
 	@RequestMapping("sendEmail")
 	public String emailPage(@SessionAttribute("userInfo") UserInfoDTO userInfo,
-			@ModelAttribute("emailDTO") EmailDTO emailDTO, Model model) {
+			@ModelAttribute("emailDTO") EmailDTO emailDTO, Model model, HttpSession session) {
 		String gender = userInfo.getGender();
 		LOGGER.info("Inside Email Controller inside emailPage method");
 		LOGGER.info("Gender is " + gender);
@@ -37,8 +37,10 @@ public class EmailController {
 		} else {
 			genderIdentity = "Ms.";
 		}
-		model.addAttribute("userGender", genderIdentity);
+		String genderAndName= genderIdentity+" "+userInfo.getYourName();
+		model.addAttribute("userGenderwithName",genderAndName);
 		LOGGER.info("GenderIdentity is " + genderIdentity);
+		session.setAttribute("genderAndName", genderAndName);
 		return "SendEmail";
 
 	}
@@ -46,7 +48,11 @@ public class EmailController {
 	@RequestMapping("emailSent")
 	public String emailSuccess(@Valid @ModelAttribute("emailDTO") EmailDTO emailDTO, BindingResult result,
 			Model model, HttpSession session) {
-		UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo");
+		UserInfoDTO userInfo = (UserInfoDTO) session.getAttribute("userInfo"); 
+		String genderAndName=(String)session.getAttribute("genderAndName");
+		session.setAttribute("userEmail", emailDTO.getUserEmail());
+		System.out.println(userInfo);
+		//here I am using another method to get session
 		LOGGER.info("Inside Email contoller and inside emailSuccess method");
 		if (result.hasErrors()) {
 			LOGGER.error("EmailDTO has error because information sent from JSP is not satisfied with validation");
@@ -61,9 +67,10 @@ public class EmailController {
 		} else {
 			genderIdentity = "Ms.";
 		}
-		model.addAttribute("userGender", genderIdentity);
+		model.addAttribute("userGenderwithName", genderAndName); 
+		//If we not send attribute through model then it will not print
 		LOGGER.info("GenderIdentity is " + genderIdentity);
-		String pageResult = mailSenderImpl.sendMail(genderIdentity + " " + userInfo.getYourName(),
+		String pageResult = mailSenderImpl.sendMail(genderAndName,
 				userInfo.getCrushName(), emailDTO.getUserEmail(), userInfo.getRelationResult());
 
 		return pageResult;

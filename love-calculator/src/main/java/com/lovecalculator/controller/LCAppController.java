@@ -20,7 +20,7 @@ import jakarta.validation.Valid;
 
 
 @Controller
-@SessionAttributes({"userInfo","cookiesTest"}) // sessionAttribute name and modelAttribute names must be same
+@SessionAttributes({"cookiesTest"}) // sessionAttribute name and modelAttribute names must be same
 public class LCAppController {
 	
 	@Autowired
@@ -44,9 +44,9 @@ public class LCAppController {
 	@RequestMapping("processData") // we must write @Valid at before @ModelAttribute and BindidngResult after DTO obj
 	public String processData(@Valid UserInfoDTO userInfo, BindingResult bindingResult, Model model,HttpSession session) {
 		
-//		Using both SessionAttributes and HttpSession because when we are not using @ModelAttribute in this method
+//		Using both SessionAttributes and HttpSession because when we are not using @ModelAttribute in this class
 //		Then the sessionAttributes we are unable to fetch data inside any
-//		different controller by @SessionAttribute. THIS BOTH ARE DIFFERENT
+//		different controller by @SessionAttribute. HTTPSESSION AND SESSION THIS BOTH ARE DIFFERENT
 		session.setAttribute("userInfo", userInfo);
 		
 		if(model.getAttribute("cookiesTest")==null) {

@@ -78,7 +78,7 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>Hello ${userGender} ${userInfo.yourName}</h1>
+        <h1>Hello ${userGenderwithName}</h1>
         <h3>Send Result to Your Email</h3>
         <form:form action="emailSent" modelAttribute="emailDTO">
             <label>Enter Your Email</label>
